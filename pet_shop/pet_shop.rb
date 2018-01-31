@@ -75,17 +75,17 @@ def find_pet_by_name(pet_shop, name)
 end
 
 
-# def remove_pet_by_name(pet_shop, name)
-#
-#   for pet in pet_shop[:pets]
-#     if pet[:name] == name
-#       pet[:name].delete(name)
-#       return nil
-#     end
-#   end
-#
-#
-# end
+def remove_pet_by_name(pet_shop, name)
+
+  for pet in pet_shop[:pets]
+    if pet[:name] == name
+      pet_shop[:pets].delete(pet)
+      return nil
+    end
+  end
+
+
+end
 
 def add_pet_to_stock(pets, new_pet)
 
@@ -120,7 +120,7 @@ end
 
 def customer_can_afford_pet(cost, cash)
 
-if cost[:price].to_i < cash[:cash].to_i
+if cash[:price] < cost[:cash]
   return true
 
 else
@@ -128,3 +128,6 @@ else
 end
 
 end
+
+
+#can call previous methods to save rewriting code. Just remember to use same arguments
